@@ -22,17 +22,17 @@ function Item({ item }) {
   const fb = `https://facebook.com/${item.Facebook}`;
 
   return (
-    <div className="flex flex-col gap-4 border-4 border-gray-300 rounded-lg">
+    <div className="flex flex-col gap-4 border-4 border-green-300 rounded-lg">
       <img
         id="picture"
         layout="fill"
-        className="rounded-lg object-contain self-center"
+        className="object-contain self-center"
         src={image}
       />
       <div className="p-3">
         <p>
-          <span className="text-2xl text-green-400">
-            <b>{item.Item}</b> ~{item.Seller}
+          <span className="text-2xl text-green-300">
+            <b className="text-green-600">{item.Item}</b> ~{item.Seller}
           </span>
           <br />
           <span className="text-lg">
@@ -44,21 +44,18 @@ function Item({ item }) {
         </p>
         <br />
         <div className="flex flex-row">
-          <Link
-            href={mailtoLink}
-            className="hover:cursor-pointer text-green-400"
-          >
+          <a href={mailtoLink} className="hover:cursor-pointer">
             <TbMail size={40} />
-          </Link>
-          <Link href={callLink} className="hover:cursor-pointer">
+          </a>
+          <a href={callLink} className="hover:cursor-pointer">
             <TbPhone size={40} />
-          </Link>
-          <Link href={insta} className="hover:cursor-pointer">
+          </a>
+          <a href={insta} className="hover:cursor-pointer">
             <TbBrandInstagram size={40} />
-          </Link>
-          <Link href={fb} className="hover:cursor-pointer">
+          </a>
+          <a href={fb} className="hover:cursor-pointer">
             <TbBrandFacebook size={40} />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

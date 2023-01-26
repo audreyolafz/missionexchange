@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Item({ companyName, logo, website }) {
+export default function Item({ itemName, itemImg, website }) {
   return (
     <div>
       <Link href={website}>
-        <Image src={logo} alt={companyName} layout="fill" />
+        <Image src={itemImg} alt={itemName} layout="fill" />
       </Link>
     </div>
   );

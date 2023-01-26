@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Readex+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Readex+Pro&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  font-family: 'Readex Pro', sans-serif;
+* {
+  font-family: "Readex Pro", sans-serif;
 }
 
-p, a {
-    @apply text-lg;
-    font-family: 'Readex Pro', sans-serif;
+p,
+a {
+  @apply text-lg;
 }
 
 a {
-    @apply text-blue-400 hover:underline;
+  @apply text-blue-400 hover:underline;
 }
 
 body {
-    @apply bg-white text-black;
+  @apply bg-white text-black;
 }
 
 .w-fitcontent {
-    width: fit-content;
+  width: fit-content;
 }
