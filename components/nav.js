@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { CgDarkMode } from "react-icons/cg";
@@ -12,20 +13,13 @@ export default function Nav() {
   return (
     <nav className="dark:text-white">
       <ul className="px-4 flex flex-wrap sm:justify-between items-start sm:items-center mt-2">
-        <a href="/">
-          {/* <Image src={vercel} height="30" weight="30" /> */}
-          <h1 className="text-4xl">Mission Exchange</h1>
-        </a>
-
-        {/* <a
-          href="https://i.pinimg.com/originals/79/58/d6/7958d60d32cbfc6304bba080800f62aa.gif"
-          target="_blank"
-          rel="noreferrer"
-          className="sm:justify-self-center"
-        >
-          <IoIosCart size={50} />
-        </a> */}
+        <Link href="/">
+          <h1 className="text-4xl text-green-400 hover:cursor-pointer">
+            Mission Exchange
+          </h1>
+        </Link>
       </ul>
+      {/* <Image src={vercel} height="30" weight="30" /> */}
       <br />
       <br />
     </nav>

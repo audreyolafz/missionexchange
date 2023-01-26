@@ -6,43 +6,60 @@ import useSWR from "swr";
 import { useEffect, useState } from "react";
 import Nav from "../../components/nav";
 import Link from "next/link";
+import {
+  TbMail,
+  TbPhone,
+  TbBrandInstagram,
+  TbBrandFacebook,
+} from "react-icons/tb";
 
 function Item({ item }) {
   const [image, setImage] = useState(item.Picture[0].url);
-  const [audio, setAudio] = useState();
 
-  useEffect(() => {
-    setAudio(
-      new Audio(
-        "https://cloud-r450r4ok8-hack-club-bot.vercel.app/0chomp_audio.mp4"
-      )
-    );
-  }, []);
-
-  const onClick = () => {
-    setImage("https://cloud-ji1wiykgk-hack-club-bot.vercel.app/0img_1956.jpg");
-    audio.play();
-  };
+  const mailtoLink = `mailto:${item.Email}`;
+  const callLink = `tel:${item.Phone}`;
+  const insta = `https://instagram.com/${item.Instagram}`;
+  const fb = `https://facebook.com/${item.Facebook}`;
 
   return (
-    <div
-      className="hover:scale-105 transition-all duration-200 w-full flex flex-col gap-4 border-4 border-gray-300 rounded-lg p-4"
-      onClick={onClick}
-    >
+    <div className="flex flex-col gap-4 border-4 border-gray-300 rounded-lg">
       <img
         id="picture"
         layout="fill"
-        className="rounded-lg object-contain self-center h-72"
+        className="rounded-lg object-contain self-center"
         src={image}
       />
-      <div>
-        <p className="text-xl">
-          seller: {item.Seller}
+      <div className="p-3">
+        <p>
+          <span className="text-2xl text-green-400">
+            <b>{item.Item}</b> ~{item.Seller}
+          </span>
           <br />
-          description: {item.Description}
-          <br />
-          email: {item.Email}
+          <span className="text-lg">
+            {item.Description}
+            <br />
+            ready to pickup: {item.Pickup} <br />
+            return by: {item.Return} <br />
+          </span>
         </p>
+        <br />
+        <div className="flex flex-row">
+          <Link
+            href={mailtoLink}
+            className="hover:cursor-pointer text-green-400"
+          >
+            <TbMail size={40} />
+          </Link>
+          <Link href={callLink} className="hover:cursor-pointer">
+            <TbPhone size={40} />
+          </Link>
+          <Link href={insta} className="hover:cursor-pointer">
+            <TbBrandInstagram size={40} />
+          </Link>
+          <Link href={fb} className="hover:cursor-pointer">
+            <TbBrandFacebook size={40} />
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -58,7 +75,7 @@ export default function Browse() {
   return (
     <div>
       <Nav />
-      <section className="mx-5 px-4 gap-6 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+      <section className="mx-5 px-4 gap-6 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 justify-center">
         {data?.map((item, i) => (
           <Item item={item} key={i} />
         ))}

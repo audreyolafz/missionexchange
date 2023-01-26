@@ -1,15 +1,12 @@
-
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Item({ companyName, logo, website }) {
-    return (
-      <div>
-        <a href={website}>
-          <img
-            src={logo}
-            alt={companyName}
-            className="w-64 md:w-52 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
-          />
-        </a>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Link href={website}>
+        <Image src={logo} alt={companyName} layout="fill" />
+      </Link>
+    </div>
+  );
+}
