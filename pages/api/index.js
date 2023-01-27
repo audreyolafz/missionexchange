@@ -1,9 +1,9 @@
 const AirtablePlus = require("airtable-plus");
 
 const airtable = new AirtablePlus({
-  baseID: process.env.AIRTABLE_BASE_ID,
+  baseID: "appkjkLQHsjcoRPhN",
   apiKey: process.env.AIRTABLE_API_KEY,
-  tableName: process.env.AIRTABLE_TABLE_NAME,
+  tableName: "Borrow",
   transform: (res) => {
     return res.fields;
   },
@@ -11,5 +11,5 @@ const airtable = new AirtablePlus({
 
 export default async (req, res) => {
   const readRes = await airtable.read();
-  res.json(readRes);
+  res.status(200).json(readRes);
 };

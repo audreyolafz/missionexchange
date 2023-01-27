@@ -14,8 +14,6 @@ import {
 } from "react-icons/tb";
 
 function Item({ item }) {
-  const [image, setImage] = useState(item.Picture[0].url);
-
   const mailtoLink = `mailto:${item.Email}`;
   const callLink = `tel:${item.Phone}`;
   const insta = `https://instagram.com/${item.Instagram}`;
@@ -27,7 +25,7 @@ function Item({ item }) {
         id="picture"
         layout="fill"
         className="object-contain self-center"
-        src={image}
+        src={item.Picture[0].url}
       />
       <div className="p-3">
         <p>
@@ -63,7 +61,6 @@ function Item({ item }) {
 }
 
 export default function Browse() {
-  const [image, setImage] = useState("");
   let data = useSWR("/api", fetcher).data;
   useEffect(() => {
     console.log(data);
