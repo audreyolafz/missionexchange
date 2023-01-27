@@ -1,33 +1,58 @@
 import React from "react";
 import Nav from "../components/nav";
 import Link from "next/link";
+import Router, { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function Home() {
+export default function Index() {
+  const secretCode = [
+    "a",
+    "c",
+    "a",
+    "d",
+    "e",
+    "m",
+    "i",
+    "c",
+    "v",
+    "a",
+    "l",
+    "i",
+    "d",
+    "a",
+    "t",
+    "i",
+    "o",
+    "n",
+  ];
+  const keys = [];
+  const Router = useRouter();
+
+  function keysDetector(e) {
+    console.log(e.key);
+
+    keys.push(e.key);
+    if (keys.length > secretCode.length) {
+      keys.shift();
+    }
+
+    if (JSON.stringify(keys) === JSON.stringify(secretCode)) {
+      alert("Hey warrior!");
+      Router.push("/warrior");
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("keyup", keysDetector);
+  });
   return (
     <div>
       <Nav />
-      <h1 className="text-5xl text-center">Hello, warrior!</h1>
+      <h1 className="text-5xl text-center">Hello, there!</h1>
       <br />
-      <div className="flex flex-row gap-5 justify-center">
-        <div className="border-4 rounded-lg border-green-300">
-          <Link href="/browse/browse">
-            <h3 className="p-10 md:p-20 lg:p-36 text-2xl hover:underline hover:cursor-pointer">
-              Browse
-            </h3>
-          </Link>
-        </div>
-        <div className="border-4 rounded-lg border-green-300">
-          <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://airtable.com/shrk639o81rZoG4H5"
-          >
-            <h3 className="p-10 md:p-20 lg:p-36 text-2xl hover:underline hover:cursor-pointer">
-              Upload
-            </h3>
-          </Link>
-        </div>
-      </div>
+      <h1 className="text-3xl text-center">
+        Please enter the password in order to be verified.
+      </h1>
+
       <br></br>
     </div>
   );

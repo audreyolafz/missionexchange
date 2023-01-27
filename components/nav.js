@@ -16,7 +16,7 @@ export default function Nav() {
         <Link href="/">
           <span>
             {/* <Image src={vercel} height="30" weight="30" /> */}
-            <h1 className="text-4xl font-bold text-green-600 hover:cursor-pointer">
+            <h1 className="text-4xl font-bold text-green hover:cursor-pointer">
               Mission Exchange
             </h1>
           </span>

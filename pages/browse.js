@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
-import fetcher from "../../lib/fetcher";
+import fetcher from "../lib/fetcher";
 import useSWR from "swr";
 import { useEffect, useState } from "react";
-import Nav from "../../components/nav";
+import Nav from "../components/nav";
 import Link from "next/link";
 import {
   TbMail,
@@ -20,7 +20,7 @@ function Item({ item }) {
   const fb = `https://facebook.com/${item.Facebook}`;
 
   return (
-    <div className="flex flex-col gap-4 border-4 border-green-300 rounded-lg">
+    <div className="flex flex-col gap-4 border-4 border-lightGreen rounded-lg">
       <img
         id="picture"
         layout="fill"
@@ -29,7 +29,7 @@ function Item({ item }) {
       />
       <div className="p-3">
         <p>
-          <span className="text-2xl text-green-300">
+          <span className="text-2xl text-lightGreen">
             <b className="text-green-600">{item.Item}</b> ~{item.Seller}
           </span>
           <br />
@@ -74,6 +74,7 @@ export default function Browse() {
           <Item item={item} key={i} />
         ))}
       </section>
+      <br />
     </div>
   );
 }

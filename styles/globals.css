@@ -6,6 +6,7 @@
 
 * {
   font-family: "Readex Pro", sans-serif;
+  background-color: #bfc9ca;
 }
 
 p,
@@ -14,11 +15,11 @@ a {
 }
 
 a {
-  @apply text-blue-400 hover:underline;
+  @apply text-darkGreen hover:underline;
 }
 
 body {
-  @apply bg-white text-black;
+  @apply text-black;
 }
 
 .w-fitcontent {
