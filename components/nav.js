@@ -7,15 +7,15 @@ import Image from "next/image";
 import { IoIosCart } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 import vercel from "/public/vercel.svg";
+import logo from "/public/logo.png";
 
 export default function Nav() {
   const { theme, setTheme } = useTheme();
   return (
     <nav className="dark:text-white">
-      <ul className="px-4 flex flex-wrap sm:justify-between items-start sm:items-center mt-2">
+      <ul className="px-4 flex flex-wrap justify-between items-start sm:items-center mt-2 mr-48 lg:mr-96">
         <Link href="/">
-          <span>
-            {/* <Image src={vercel} height="30" weight="30" /> */}
+          <span className="flex flex-row">
             <h1 className="text-4xl font-bold text-green hover:cursor-pointer">
               Mission Exchange
             </h1>

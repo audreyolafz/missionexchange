@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Nav from "../components/nav";
+import Image from "next/image";
+import logo from "/public/logo.png";
 
 export default function Warrior() {
   return (
@@ -25,6 +27,11 @@ export default function Warrior() {
             </h3>
           </Link>
         </div>
+      </div>
+      <br />
+
+      <div className="grid mx-auto item-center self-center justify-center">
+        <Image src={logo} height="250" width="250" />
       </div>
     </div>
   );
